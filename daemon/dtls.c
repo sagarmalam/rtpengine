@@ -66,33 +66,36 @@ static unsigned int sha_512_func(unsigned char *, X509 *);
 
 
 
+//Sagar Malam has applied patch as suggested here : https://github.com/sipwise/rtpengine/issues/87
 static const struct dtls_hash_func hash_funcs[] = {
-	{
-		.name					= "sha-1",
-		.num_bytes				= 160 / 8,
-		.__func					= sha_1_func,
-	},
-	{
-		.name					= "sha-224",
-		.num_bytes				= 224 / 8,
-		.__func					= sha_224_func,
-	},
-	{
-		.name					= "sha-256",
-		.num_bytes				= 256 / 8,
-		.__func					= sha_256_func,
-	},
-	{
-		.name					= "sha-384",
-		.num_bytes				= 384 / 8,
-		.__func					= sha_384_func,
-	},
-	{
-		.name					= "sha-512",
-		.num_bytes				= 512 / 8,
-		.__func					= sha_512_func,
-	},
+        {
+                .name                                   = "sha-256",
+                .num_bytes                              = 256 / 8,
+                .__func                                 = sha_256_func,
+        },
+        {
+                .name                                   = "sha-224",
+                .num_bytes                              = 224 / 8,
+                .__func                                 = sha_224_func,
+        },
+        {
+                .name                                   = "sha-1",
+                .num_bytes                              = 160 / 8,
+                .__func                                 = sha_1_func,
+        },
+        {
+                .name                                   = "sha-384",
+                .num_bytes                              = 384 / 8,
+                .__func                                 = sha_384_func,
+        },
+        {
+                .name                                   = "sha-512",
+                .num_bytes                              = 512 / 8,
+                .__func                                 = sha_512_func,
+        },
 };
+
+
 
 const int num_hash_funcs = G_N_ELEMENTS(hash_funcs);
 
